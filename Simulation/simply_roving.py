@@ -1,5 +1,5 @@
-import math as math
-import enum as enum
+import math
+import enum
 import csv
 import datetime
 import pygame
