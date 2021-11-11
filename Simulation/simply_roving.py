@@ -323,7 +323,8 @@ def update_time(rover_information):
 def main():
 
     position_history = [(ROVER_START_X, ROVER_START_Y)]
-
+    
+    #CSV
     #This is to print data to csv file
     # f = open(r'INSERT_CURRENT_DIRECTORY_HERE', 'w', newline='')
     # writer = csv.writer(f)
@@ -442,7 +443,8 @@ def main():
                 #############################################################################################################
 
                 waypoint_distance = math.sqrt((waypoint_x - rover_information["x_position"])**2 + (waypoint_y - rover_information["y_position"])**2)
-
+                
+                #CSV
                 #Prints simulated data to csv file every five in-game minutes
                 # if((rover_information["minutes"] % 5) == 0 and 0 < rover_information["seconds"] < 18):
                 #     writer.writerow([rover_information["total_current_drawn"], rover_information["total_current_drawn"] - rover_information["microcontroller_current_drawn"], rover_information["microcontroller_current_drawn"], rover_information["solar_input_current"], str(rover_information["hours"]) + ":" + str(rover_information["minutes"])])
@@ -457,6 +459,7 @@ def main():
                 # final_waypoint_reached = True
 
         print("I have completed the mission...")
+        #CSV
         # f.close()
         run = False
     pygame.quit
