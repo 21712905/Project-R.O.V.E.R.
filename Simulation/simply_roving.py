@@ -349,7 +349,7 @@ def main():
         "right_sensor_distance": 400,
         "previous_right_sensor_distance": 400,
         "wheel_constants": 0.003216*0.72727272727272, #rolling friction coefficient * torque constant
-        "maximum_motor_current": 0.93,
+        "maximum_motor_current": 0.8,
         "total_current_drawn": 0,
         "microcontroller_current_drawn": 0.33,
         "solar_input_current": 0,
