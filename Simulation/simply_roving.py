@@ -292,6 +292,7 @@ def calculate_current_usage(rover_information):
     else:
         rover_information["total_current_drawn"] = ((rover_information["maximum_heading_adjustment"] - abs((rover_information["current_heading"] - rover_information["previous_heading"])))/rover_information["maximum_heading_adjustment"])*rover_information["maximum_motor_current"]*3
 
+    rover_information["microcontroller_current_drawn"] = rover_information["preset_microcontroller_current"]
     rover_information["total_current_drawn"] += rover_information["maximum_motor_current"]*3 + rover_information["microcontroller_current_drawn"]
     return rover_information
 
@@ -355,6 +356,7 @@ def main():
         "maximum_motor_current": 0.5,
         "total_current_drawn": 0,
         "microcontroller_current_drawn": 0.33,
+        "preset_microcontroller_current": 0.33,
         "solar_input_current": 0,
         "current_time": 0,
         "hours": 0,
@@ -432,6 +434,8 @@ def main():
                     rover_information = reduce_battery(rover_information, dt)
                 else:
                     rover_information["charging"] = True
+                    rover_information["total_current_drawn"] = 0
+                    rover_information["microcontroller_current_drawn"] = 0
                     if(rover_information["current_battery_life"] >= rover_information["full_battery_life"] ):
                         rover_information["charging"] = False
 
